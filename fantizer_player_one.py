@@ -1,4 +1,4 @@
-inv = dict()
+inv = {}
 names = []
 manys = []
 
@@ -12,20 +12,30 @@ def inventory(dic):
 
 
 print("Welcome to Fantizer")
-n = int(input("How many itemes yo got ? "))
-inv_cp = {}
+n = int(input("How many items yo got ? "))
+
 for n in range(n):
     name = str(input("Yo item got any name : "))
     names.append(name)
     many = int(input("How much yo got in that name : "))
     manys.append(many)
 
+# fire @test
 # print(names)
 # print(manys)
 
-# BUGG
-# for x, y in names, manys:
-#     hand = dict(x=y)
+# BUGG >> Fixed >> Closed
+army = 0
+for x in names:
+    for y in manys:
+        army += y
+        inv[x] = y
+        manys.remove(y)
+        break
+# print(str(inv))
 
 # Player One Driver Code
-# inventory(hand)
+print("Inventory : ")
+inventory(inv)
+print(f"Total army camp : {army}")
+
